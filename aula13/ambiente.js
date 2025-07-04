@@ -1,22 +1,11 @@
-do{
-    console.log("Tudo bem?")
-    c++
-}while(c <= 6)
-// Exemplo de loop do-while
-
 var c = 1
-while (c <= 6) {
-    console.log("Tudo bem?")
+do{
+    console.log(`Passo ${c}`);
     c++
 }
-// Exemplo de loop while
+while(c <= 500)
+    
 
 
-/*
-console.log("Tudo bem?")
-console.log("Tudo bem?")    
-console.log("Tudo bem?")
-console.log("Tudo bem?")    
-console.log("Tudo bem?")
-console.log("Tudo bem?")
-*/
+
+
