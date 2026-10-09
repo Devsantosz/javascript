@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Requisição XMLHttpRequest</title>
+</head>
+<body>
+	<h1>Imagens Aleatórios de Cachorros</h1>
+	<p>A partir do click no botão abaixo uma nova imagem aleatória de cachorros será carregada utilizando requisições assíncronas com XMLHttpRequest</p>
+
+	<img id="img_dog" src="" alt="Aguardando a imagem ser carregada" />
+	<br/>
+	<button onclick="carregarImagens()">Carregar Imagens</button>
+</body>
+	<script type="text/javascript">
+
+		function carregarImagens(){
+            //Endereco da API
+			var url = "https://dog.ceo/api/breeds/image/random" 
+			fetch(url, { 
+				method: 'get' 
+			})
+            //fetch - faz uma requisição,Isso permite buscar os dados sem travar a página
+			.then(function(response) { //Tratar resposta, oque fazer com a resposta
+				response.json().then(function(data){ //Converter a resposta para JSON
+					console.log('Resultado da Requisição: ' + data.message); 
+
+                    //Configurar a var do javascript pelo elemento do html
+					var imgDog = document.getElementById("img_dog");
+					imgDog.src = data.message;
+                    //Definir a imagem
+				});
+			})
+			.catch(function(err) { 
+				console.error('O seguinte erro ocorreu durante a requisição: ' + err);
+			});
+
+		}
+	</script>
+</html>
